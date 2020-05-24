@@ -1,1 +1,1 @@
-docker build -t juzzlin/qt5-18.04:latest . --no-cache
+docker build -t juzzlin/qt5-20.04:latest . --no-cache
