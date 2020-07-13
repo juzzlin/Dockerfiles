@@ -2,9 +2,7 @@ FROM ubuntu:18.04
 
 RUN apt update && apt upgrade -y
 
-RUN apt install build-essential pkg-config cmake qt5-default qttools5-dev-tools qttools5-dev -y
-
-RUN apt install snapcraft -y
+RUN apt install build-essential pkg-config cmake qt5-default qttools5-dev-tools qttools5-dev libqt5svg5-dev -y
 
 RUN apt install -y locales locales-all
 
@@ -25,4 +23,6 @@ RUN usermod -a -G fuse root
 RUN apt install libopenal-dev -y
 
 RUN apt install libvorbis-dev -y
+
+RUN apt install snapcraft -y
 

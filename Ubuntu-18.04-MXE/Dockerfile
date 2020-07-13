@@ -43,4 +43,5 @@ RUN cd mxe && make vorbis
 
 RUN cd mxe && make nsis
 
+RUN apt install -y dos2unix
 
