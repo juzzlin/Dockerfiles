@@ -24,3 +24,5 @@ RUN apt install libopenal-dev -y
 
 RUN apt install libvorbis-dev -y
 
+RUN apt install file -y
+
