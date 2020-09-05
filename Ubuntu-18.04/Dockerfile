@@ -24,7 +24,5 @@ RUN apt install libopenal-dev -y
 
 RUN apt install libvorbis-dev -y
 
-RUN apt install snapcraft -y
-
 RUN apt install libboost-all-dev -y
 
