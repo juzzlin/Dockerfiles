@@ -6,7 +6,12 @@ RUN DEBIAN_FRONTEND=noninteractive apt install -y tzdata
 
 RUN DEBIAN_FRONTEND=noninteractive apt install -y keyboard-configuration
 
-RUN apt install -y build-essential pkg-config cmake qt5-default qttools5-dev-tools qttools5-dev libqt5svg5-dev
+RUN apt install -y build-essential pkg-config cmake
+
+# These were in 'qt5-default' in Ubuntu 20.04
+RUN apt install -y qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools
+
+RUN apt install -y qttools5-dev-tools qttools5-dev libqt5svg5-dev
 
 RUN apt install -y locales locales-all
 
