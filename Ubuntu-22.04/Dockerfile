@@ -21,6 +21,9 @@ ENV LANG en_US.UTF-8
 
 ENV LANGUAGE en_US.UTF-8
 
+# https://stackoverflow.com/questions/58752693/building-opencv-as-deb-package-cpackdeb-file-utility-is-not-available
+RUN apt install -y file
+
 RUN apt install -y wget
 
 RUN apt install -y fuse
