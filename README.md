@@ -33,3 +33,10 @@ Used by Dust Racing 2D and Heimer
 * OpenAL Soft
 * Ogg libs
 * NSIS
+
+## Ubuntu-22.04
+
+* Qt5 on Ubuntu 22.04
+* OpenAL Soft
+* Ogg libs
+
