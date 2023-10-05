@@ -9,9 +9,12 @@ RUN apt update && DEBIAN_FRONTEND=noninteractive apt install -y keyboard-configu
 RUN apt update && apt install -y build-essential pkg-config cmake
 
 # These were in 'qt5-default' in Ubuntu 20.04
-RUN apt update && apt install -y qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools
+RUN apt update && apt install -y qtchooser
 
-RUN apt update && apt install -y qttools5-dev-tools qttools5-dev libqt5svg5-dev
+RUN apt update && apt install -y libqt5svg5-dev qt5-qmake qtbase5-dev qtbase5-dev-tools qttools5-dev qttools5-dev-tools
+
+# Needed Qt6 packages in Ubuntu 22.04
+RUN apt update && apt install -y libqt6svg6-dev libqt6uitools6 linguist-qt6 qt6-base-dev qt6-l10n-tools qt6-tools-dev-tools qt6-tools-private-dev
 
 RUN apt update && apt install -y locales locales-all
 
