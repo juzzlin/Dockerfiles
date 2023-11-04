@@ -41,3 +41,5 @@ RUN apt update && apt install libvorbis-dev -y
 
 RUN apt update && apt install git -y
 
+RUN apt update && apt install ninja-build -y
+

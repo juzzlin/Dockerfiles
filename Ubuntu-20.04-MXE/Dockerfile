@@ -61,6 +61,10 @@ RUN git checkout 87a9b83dcf7d1650149e1d24f490d70405ddba1f
 RUN touch settings.mk
 RUN make IGNORE_SETTINGS=yes MXE_PLUGIN_DIRS=plugins/gcc7 qt5
 RUN make IGNORE_SETTINGS=yes MXE_PLUGIN_DIRS=plugins/gcc7 openal ogg vorbis nsis
+
+RUN make IGNORE_SETTINGS=yes MXE_PLUGIN_DIRS=plugins/gcc7 ninja
+RUN ln -s /mxe/usr/x86_64-pc-linux-gnu/bin/ninja /mxe/usr/bin/ninja
+
 RUN echo "cache_dir = /tmp/.ccache" > /mxe/.ccache/ccache.conf
 RUN ln -s /mxe/usr/bin/i686-w64-mingw32.static-cmake /mxe/usr/bin/cmake
 
