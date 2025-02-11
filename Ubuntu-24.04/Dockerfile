@@ -1,21 +1,10 @@
 FROM ubuntu:24.04
 
-RUN apt update && apt upgrade -y
+RUN apt-get update && apt-get upgrade -y
 
-RUN apt update && DEBIAN_FRONTEND=noninteractive apt install -y tzdata
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y tzdata keyboard-configuration
 
-RUN apt update && DEBIAN_FRONTEND=noninteractive apt install -y keyboard-configuration
-
-RUN apt update && apt install -y build-essential pkg-config cmake
-
-RUN apt update && apt install -y qtchooser
-
-RUN apt update && apt install -y libqt5svg5-dev qt5-qmake qtbase5-dev qtbase5-dev-tools qttools5-dev qttools5-dev-tools
-
-# Needed Qt6 packages in Ubuntu 24.04
-RUN apt update && apt install -y libqt6svg6-dev libqt6uitools6 linguist-qt6 qt6-base-dev qt6-l10n-tools qt6-tools-dev-tools qt6-tools-private-dev
-
-RUN apt update && apt install -y locales locales-all
+RUN apt-get update && apt-get install -y locales locales-all
 
 ENV LC_ALL en_US.UTF-8
 
@@ -24,21 +13,23 @@ ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US.UTF-8
 
 # https://stackoverflow.com/questions/58752693/building-opencv-as-deb-package-cpackdeb-file-utility-is-not-available
-RUN apt update && apt install -y file
-
-RUN apt update && apt install -y wget
-
-RUN apt update && apt install -y fuse
+RUN apt-get update && apt-get install -y file wget fuse
 
 RUN groupadd fuse
 
 RUN usermod -a -G fuse root
 
-RUN apt update && apt install libopenal-dev -y
+RUN apt-get update && apt-get install -y git build-essential pkg-config cmake ninja-build
 
-RUN apt update && apt install libvorbis-dev -y
+# Qt 6: Build dependencies
+RUN apt-get update && apt-get install -y qt6-base-dev qt6-declarative-dev qt6-tools-dev qt6-l10n-tools qt6-tools-dev-tools qt6-tools-private-dev libqt6svg6-dev libqt6uitools6 linguist-qt6
 
-RUN apt update && apt install git -y
+# Qt 6: Runtime dependencies
+RUN apt-get update && apt-get install -y qml6-module-qtqml qml6-module-qtcore qml6-module-qtquick-dialogs qml6-module-qtquick-templates
 
-RUN apt update && apt install ninja-build -y
+RUN apt-get update && apt-get install -y libopenal-dev
+
+RUN apt-get update && apt-get install -y libvorbis-dev
+
+RUN apt-get update && apt-get install -y librtmidi-dev
 
